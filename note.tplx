@@ -1,0 +1,46 @@
+((*- extends 'base.tplx' -*))
+
+((* block docclass *))
+\documentclass[twocolumn]{article}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{supertabular}
+\usepackage{framed}
+\setlength{\FrameSep}{3pt}
+\setlist{nosep,itemsep=1pt,parsep=1pt}
+((* endblock docclass *))
+
+((* block definitions *))
+((( super() )))
+((( resources.latex.pygments_definitions )))
+((* endblock definitions *))
+
+((* block input scoped *))
+\begingroup
+\footnotesize
+\begin{Verbatim}[commandchars=\\\{\}]
+((( cell.source | highlight_code(strip_verbatim=True) )))
+\end{Verbatim}
+\endgroup
+((* endblock input *))
+
+((* block codecell *))
+\begin{framed}
+((( super() )))
+\end{framed}
+((* endblock codecell *))
+
+((* block data_latex -*))
+((( super() )))
+((* endblock data_latex *))
+
+((* block author *))
+\author{Thai Pangsakulyanont}
+((* endblock author *))
+
+((* block predoc *))
+((( super() )))
+\tableofcontents
+\bigskip
+
+((* endblock predoc *))
